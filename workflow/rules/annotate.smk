@@ -17,7 +17,7 @@ rule annotate:
         vcf=temp("snv_indels/{caller}/{file}.annotated.vcf"),
     params:
         extra=config["annotate"]["params"]["extra"],
-        mode=config.get("annotate",{}).get("mode","--offline --cache"),
+        mode=config.get("annotate",{}).get("params", {}).get("mode","--offline --cache"),
     log:
         "snv_indels/{caller}/{file}.annotated.vcf.gz.log",
     benchmark:
